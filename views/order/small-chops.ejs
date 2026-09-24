@@ -1,0 +1,126 @@
+<%- include('../partials/header') %>
+
+<div class="page-banner text-center py-4">
+  <h1 class="page-banner-title">🥟 Order Small Chops</h1>
+  <p class="page-banner-sub">Select your items, quantities and spice levels.</p>
+</div>
+
+<div class="container py-5">
+  <div class="order-form-card mx-auto" style="max-width:720px">
+
+    <% if (errors.length > 0) { %>
+      <div class="alert alert-danger"><ul class="mb-0"><% errors.forEach(e => { %><li><%= e %></li><% }) %></ul></div>
+    <% } %>
+
+    <form action="/order/submit" method="POST">
+      <input type="hidden" name="product_type" value="small_chops">
+
+      <h5 class="form-section-title">Samosas</h5>
+      <div class="row g-3 mb-4">
+        <% [
+          {key:'chicken_samosa', label:'Chicken Samosa'},
+          {key:'beef_samosa',    label:'Beef Samosa'},
+          {key:'veggie_samosa',  label:'Veggie Samosa'}
+        ].forEach(item => { %>
+          <div class="col-md-4">
+            <div class="chops-card">
+              <label class="fw-semibold mb-2 d-block"><%= item.label %></label>
+              <div class="d-flex align-items-center gap-2 mb-2">
+                <label class="form-label mb-0 small">Qty</label>
+                <input type="number" name="qty_<%= item.key %>" class="form-control form-control-sm"
+                  min="0" value="<%= old['qty_'+item.key] || 0 %>" style="width:70px">
+              </div>
+              <select name="spice_<%= item.key %>" class="form-select form-select-sm">
+                <option value="mild"   <%=(old['spice_'+item.key]==='mild')  ?'selected':''%>>🌶 Mild</option>
+                <option value="medium" <%=(old['spice_'+item.key]==='medium')?'selected':''%>>🌶🌶 Medium</option>
+                <option value="hot"    <%=(old['spice_'+item.key]==='hot')   ?'selected':''%>>🌶🌶🌶 Hot</option>
+              </select>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+
+      <h5 class="form-section-title">Spring Rolls</h5>
+      <div class="row g-3 mb-4">
+        <% [
+          {key:'chicken_spring_roll', label:'Chicken Spring Roll'},
+          {key:'beef_spring_roll',    label:'Beef Spring Roll'},
+          {key:'veggie_spring_roll',  label:'Veggie Spring Roll'}
+        ].forEach(item => { %>
+          <div class="col-md-4">
+            <div class="chops-card">
+              <label class="fw-semibold mb-2 d-block"><%= item.label %></label>
+              <div class="d-flex align-items-center gap-2 mb-2">
+                <label class="form-label mb-0 small">Qty</label>
+                <input type="number" name="qty_<%= item.key %>" class="form-control form-control-sm"
+                  min="0" value="<%= old['qty_'+item.key] || 0 %>" style="width:70px">
+              </div>
+              <select name="spice_<%= item.key %>" class="form-select form-select-sm">
+                <option value="mild"   <%=(old['spice_'+item.key]==='mild')  ?'selected':''%>>🌶 Mild</option>
+                <option value="medium" <%=(old['spice_'+item.key]==='medium')?'selected':''%>>🌶🌶 Medium</option>
+                <option value="hot"    <%=(old['spice_'+item.key]==='hot')   ?'selected':''%>>🌶🌶🌶 Hot</option>
+              </select>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+
+      <h5 class="form-section-title">Puff Puff</h5>
+      <div class="row g-3 mb-4">
+        <% [
+          {key:'chicken_puff', label:'Chicken Puff Puff', spice:true},
+          {key:'beef_puff',    label:'Beef Puff Puff',    spice:true},
+          {key:'veggie_puff',  label:'Veggie Puff Puff',  spice:false}
+        ].forEach(item => { %>
+          <div class="col-md-4">
+            <div class="chops-card">
+              <label class="fw-semibold mb-2 d-block"><%= item.label %></label>
+              <div class="d-flex align-items-center gap-2 mb-2">
+                <label class="form-label mb-0 small">Qty</label>
+                <input type="number" name="qty_<%= item.key %>" class="form-control form-control-sm"
+                  min="0" value="<%= old['qty_'+item.key] || 0 %>" style="width:70px">
+              </div>
+              <% if (item.spice) { %>
+                <select name="spice_<%= item.key %>" class="form-select form-select-sm">
+                  <option value="mild"   <%=(old['spice_'+item.key]==='mild')  ?'selected':''%>>🌶 Mild</option>
+                  <option value="medium" <%=(old['spice_'+item.key]==='medium')?'selected':''%>>🌶🌶 Medium</option>
+                  <option value="hot"    <%=(old['spice_'+item.key]==='hot')   ?'selected':''%>>🌶🌶🌶 Hot</option>
+                </select>
+              <% } %>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+
+      <h5 class="form-section-title">Pies</h5>
+      <div class="row g-3 mb-4">
+        <% [{key:'chicken_pie',label:'Chicken Pie'},{key:'meat_pie',label:'Meat Pie'}].forEach(item => { %>
+          <div class="col-md-4">
+            <div class="chops-card">
+              <label class="fw-semibold mb-2 d-block"><%= item.label %></label>
+              <div class="d-flex align-items-center gap-2">
+                <label class="form-label mb-0 small">Qty</label>
+                <input type="number" name="qty_<%= item.key %>" class="form-control form-control-sm"
+                  min="0" value="<%= old['qty_'+item.key] || 0 %>" style="width:70px">
+              </div>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+
+      <div class="mb-4">
+        <label class="form-label">Special Notes <small class="text-muted">(optional)</small></label>
+        <textarea name="special_notes" class="form-control" rows="2"
+          placeholder="Any allergies, packaging requests…"><%= old.special_notes||'' %></textarea>
+      </div>
+
+      <%- include('_shared_fields') %>
+      <%- include('_contact_fields') %>
+
+      <button type="submit" class="btn btn-brand-primary w-100 btn-lg mt-3">Submit Order Request</button>
+      <p class="text-center text-muted small mt-2">We'll confirm your order and share a quote within 24 hours.</p>
+    </form>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>

@@ -1,0 +1,51 @@
+<%- include('../partials/header') %>
+
+<div class="page-banner text-center py-4">
+  <h1 class="page-banner-title">Place an Order</h1>
+  <p class="page-banner-sub">What would you like to order today?</p>
+</div>
+
+<div class="container py-5">
+  <div class="row g-4 justify-content-center">
+
+    <div class="col-md-5 col-lg-3">
+      <a href="/order/cake" class="order-type-card text-center text-decoration-none d-block h-100">
+        <div class="order-type-icon">🎂</div>
+        <h5>Celebration Cake</h5>
+        <p class="text-muted small">6" to 12", your choice of flavor & icing</p>
+      </a>
+    </div>
+
+    <div class="col-md-5 col-lg-3">
+      <a href="/order/cupcakes" class="order-type-card text-center text-decoration-none d-block h-100">
+        <div class="order-type-icon">🧁</div>
+        <h5>Cupcakes</h5>
+        <p class="text-muted small">Half dozen, full dozen or more</p>
+      </a>
+    </div>
+
+    <div class="col-md-5 col-lg-3">
+      <a href="/order/small-chops" class="order-type-card text-center text-decoration-none d-block h-100">
+        <div class="order-type-icon">🥟</div>
+        <h5>Small Chops</h5>
+        <p class="text-muted small">Samosas, spring rolls, pies & more</p>
+      </a>
+    </div>
+
+    <div class="col-md-5 col-lg-3">
+      <a href="/order/custom" class="order-type-card text-center text-decoration-none d-block h-100">
+        <div class="order-type-icon">✨</div>
+        <h5>Custom Cake</h5>
+        <p class="text-muted small">Fully bespoke — themed, sculpted, tiered</p>
+      </a>
+    </div>
+
+  </div>
+
+  <div class="text-center mt-5 text-muted small">
+    <i class="bi bi-clock me-1"></i> All orders require at least <strong>3 days notice</strong>.
+    We'll confirm your order and send a quote via email or Instagram DM.
+  </div>
+</div>
+
+<%- include('../partials/footer') %>

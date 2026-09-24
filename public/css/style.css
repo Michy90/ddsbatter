@@ -1,0 +1,149 @@
+/* ============================================================
+   DD's Batter — Brand Stylesheet
+   Burgundy #7B1D3A | Brown #5C3317 | Cream #F5ECD7 | Rose #E8A4A4
+   ============================================================ */
+:root {
+  --burgundy:   #7B1D3A;
+  --dark-brown: #5C3317;
+  --cream:      #F5ECD7;
+  --rose:       #E8A4A4;
+  --light-bg:   #FFF9F2;
+  --text-dark:  #2d1a10;
+}
+
+body { font-family: 'Lato', sans-serif; background: #fff; color: var(--text-dark); }
+h1,h2,h3,h4,h5,.navbar-brand,.footer-brand,.hero-title,.section-title,.page-banner-title {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+/* ── Navbar ───────────────────────────────────────────────── */
+.navbar-custom { background: var(--cream); border-bottom: 2px solid var(--rose); padding: 12px 0; }
+.navbar-custom .nav-link { color: var(--dark-brown) !important; font-weight: 600; transition: color 0.2s; }
+.navbar-custom .nav-link:hover { color: var(--burgundy) !important; }
+.brand-text { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--burgundy); font-weight: 700; }
+.btn-order { background: var(--burgundy) !important; color: var(--cream) !important; border-radius: 30px; padding: 8px 22px !important; font-weight: 700; }
+.btn-order:hover { background: var(--dark-brown) !important; }
+
+/* ── Buttons ──────────────────────────────────────────────── */
+.btn-brand-primary { background: var(--burgundy); color: var(--cream); border: none; border-radius: 30px; padding: 10px 28px; font-weight: 700; transition: background 0.2s, transform 0.15s; }
+.btn-brand-primary:hover { background: var(--dark-brown); color: var(--cream); transform: translateY(-2px); }
+.btn-outline-brand { border: 2px solid var(--burgundy); color: var(--burgundy); border-radius: 30px; padding: 9px 26px; font-weight: 700; background: transparent; transition: all 0.2s; }
+.btn-outline-brand:hover { background: var(--burgundy); color: var(--cream); }
+.btn-hero-primary { background: var(--cream); color: var(--burgundy); border: none; border-radius: 30px; padding: 12px 32px; font-weight: 700; transition: transform 0.15s; }
+.btn-hero-primary:hover { transform: translateY(-2px); color: var(--burgundy); }
+.btn-hero-outline { border: 2px solid var(--cream); color: var(--cream); border-radius: 30px; padding: 11px 30px; font-weight: 700; background: transparent; transition: all 0.2s; }
+.btn-hero-outline:hover { background: rgba(255,255,255,0.15); color: var(--cream); }
+
+/* ── Hero ─────────────────────────────────────────────────── */
+.hero-section { background: linear-gradient(135deg, var(--burgundy) 0%, #a0305a 50%, var(--dark-brown) 100%); min-height: 520px; display: flex; align-items: center; }
+.hero-overlay { width: 100%; padding: 80px 20px; }
+.hero-sub { color: var(--rose); font-size: 1rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px; }
+.hero-title { color: var(--cream); font-size: clamp(3rem, 8vw, 5.5rem); font-weight: 700; line-height: 1.1; margin-bottom: 12px; }
+.hero-tagline { color: rgba(245,236,215,0.8); font-size: 1.1rem; letter-spacing: 2px; }
+
+/* ── Section Titles ───────────────────────────────────────── */
+.section-title { color: var(--burgundy); font-size: 2rem; font-weight: 700; }
+.section-sub   { color: #888; font-size: 1.05rem; }
+
+/* ── Offer Cards ──────────────────────────────────────────── */
+.offer-card { background: var(--light-bg); border: 1px solid var(--rose); border-radius: 14px; padding: 2rem 1.5rem; display: flex; flex-direction: column; transition: transform 0.2s, box-shadow 0.2s; }
+.offer-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(123,29,58,0.12); }
+.offer-icon { font-size: 3rem; margin-bottom: 12px; }
+
+/* ── How It Works ─────────────────────────────────────────── */
+.how-section { background: var(--cream); }
+.step-circle { width: 56px; height: 56px; background: var(--burgundy); color: var(--cream); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; font-weight: 700; margin: 0 auto; }
+
+/* ── Notice Banner ────────────────────────────────────────── */
+.notice-banner { background: var(--dark-brown); color: var(--cream); }
+.instagram-inline { color: var(--rose); font-weight: 700; text-decoration: none; }
+.instagram-inline:hover { color: #fff; }
+
+/* ── Page Banner ──────────────────────────────────────────── */
+.page-banner { background: linear-gradient(135deg, var(--burgundy), var(--dark-brown)); color: var(--cream); }
+.page-banner-title { font-size: 2.5rem; color: var(--cream); margin-bottom: 8px; }
+.page-banner-sub   { color: var(--rose); font-size: 1rem; }
+
+/* ── Menu ─────────────────────────────────────────────────── */
+.menu-section-title { color: var(--burgundy); font-size: 1.6rem; border-bottom: 2px solid var(--rose); padding-bottom: 8px; margin-bottom: 16px; }
+.menu-item-card { background: var(--light-bg); border: 1px solid var(--rose); border-radius: 10px; padding: 16px 12px; }
+.icing-card { border-style: dashed; }
+.menu-item-name { color: var(--dark-brown); font-weight: 600; margin: 0; }
+.menu-item-icon { font-size: 1.8rem; margin-bottom: 6px; }
+.alert-brand { background: #fdf0f4; border: 1px solid var(--rose); color: var(--dark-brown); }
+.menu-cta { background: var(--cream); border-radius: 14px; }
+
+/* ── Order Type Cards ─────────────────────────────────────── */
+.order-type-card { background: var(--light-bg); border: 2px solid var(--rose); border-radius: 16px; padding: 2.5rem 1.5rem; color: var(--text-dark); transition: all 0.2s; }
+.order-type-card:hover { border-color: var(--burgundy); background: var(--cream); transform: translateY(-4px); box-shadow: 0 8px 24px rgba(123,29,58,0.13); }
+.order-type-icon { font-size: 3rem; margin-bottom: 12px; }
+
+/* ── Order Form ───────────────────────────────────────────── */
+.order-form-card { max-width: 620px; background: var(--light-bg); border: 1px solid var(--rose); border-radius: 16px; padding: 2rem; }
+.form-section-title { color: var(--burgundy); font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; border-bottom: 1px solid var(--rose); padding-bottom: 6px; margin-bottom: 16px; }
+.chops-card { background: #fff; border: 1px solid var(--rose); border-radius: 10px; padding: 14px; }
+
+/* ── Confirmation ─────────────────────────────────────────── */
+.confirmation-card { max-width: 580px; background: var(--light-bg); border: 1px solid var(--rose); border-radius: 16px; padding: 2.5rem; }
+.confirmation-icon { font-size: 4rem; }
+.order-ref-badge { display: inline-block; background: var(--burgundy); color: var(--cream); padding: 8px 24px; border-radius: 30px; font-size: 0.95rem; margin-top: 12px; }
+.order-summary-box { background: #fff; border: 1px solid var(--rose); border-radius: 10px; padding: 16px; }
+.bg-cream { background: var(--cream) !important; }
+
+/* ── About ────────────────────────────────────────────────── */
+.about-logo-wrap { background: var(--cream); border: 3px solid var(--rose); border-radius: 50%; width: 260px; height: 260px; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto; }
+.about-brand-circle { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--burgundy); line-height: 1.2; text-align: center; margin: 0; }
+.brand-divider { border-color: var(--rose); }
+.value-card { background: var(--light-bg); border: 1px solid var(--rose); border-radius: 12px; padding: 1.5rem; }
+.value-icon { font-size: 2.5rem; margin-bottom: 10px; }
+
+/* ── Contact ──────────────────────────────────────────────── */
+.contact-card { background: var(--light-bg); border: 1px solid var(--rose); border-radius: 16px; padding: 2.5rem; }
+.contact-ig-icon { font-size: 3.5rem; color: var(--burgundy); }
+
+/* ── Footer ───────────────────────────────────────────────── */
+.site-footer { background: var(--cream); border-top: 2px solid var(--rose); }
+.footer-brand { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--burgundy); }
+.footer-heading { color: var(--burgundy); font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
+.footer-links li { margin-bottom: 6px; }
+.footer-links a { color: var(--dark-brown); text-decoration: none; }
+.footer-links a:hover { color: var(--burgundy); }
+.instagram-link { color: var(--burgundy); font-weight: 700; font-size: 1.1rem; text-decoration: none; }
+.instagram-link:hover { color: var(--dark-brown); }
+.footer-divider { border-color: var(--rose); }
+
+/* ── Admin ────────────────────────────────────────────────── */
+body.admin-body       { background: #f4f4f7; }
+body.admin-login-body { background: var(--dark-brown); }
+.admin-login-wrap  { min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+.admin-login-card  { background: #fff; border-radius: 16px; padding: 2.5rem; width: 100%; max-width: 400px; box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
+.admin-brand       { font-family: 'Playfair Display', serif; color: var(--burgundy); font-size: 1.6rem; }
+.admin-nav         { background: #fff; border-bottom: 2px solid var(--rose); position: sticky; top: 0; z-index: 100; }
+.admin-stat-card   { background: #fff; border-radius: 12px; padding: 16px; text-align: center; border-left: 4px solid #ccc; transition: transform 0.15s; cursor: pointer; }
+.admin-stat-card:hover,.admin-stat-card.active { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+.admin-stat-warning  { border-left-color: #ffc107; }
+.admin-stat-info     { border-left-color: #0dcaf0; }
+.admin-stat-primary  { border-left-color: #0d6efd; }
+.admin-stat-success  { border-left-color: #198754; }
+.admin-stat-dark     { border-left-color: #212529; }
+.admin-stat-danger   { border-left-color: #dc3545; }
+.admin-stat-secondary{ border-left-color: #6c757d; }
+.stat-num   { font-size: 2rem; font-weight: 700; color: var(--dark-brown); }
+.stat-label { font-size: 0.75rem; text-transform: uppercase; color: #888; letter-spacing: 0.5px; }
+.admin-table th { background: var(--cream); color: var(--dark-brown); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; }
+.text-brand     { color: var(--burgundy) !important; }
+.product-badge  { background: var(--dark-brown); text-transform: capitalize; }
+.status-badge   { text-transform: capitalize; font-size: 0.8rem; padding: 5px 12px; border-radius: 20px; }
+.status-pending      { background: #fff3cd; color: #856404; }
+.status-confirmed    { background: #cff4fc; color: #055160; }
+.status-in_progress  { background: #cfe2ff; color: #084298; }
+.status-ready        { background: #d1e7dd; color: #0a3622; }
+.status-delivered    { background: #d3d3d4; color: #1c1c1c; }
+.status-cancelled    { background: #f8d7da; color: #842029; }
+.admin-card-header   { background: var(--cream); color: var(--dark-brown); font-weight: 700; border-bottom: 1px solid var(--rose); }
+
+@media (max-width: 768px) {
+  .hero-section { min-height: 400px; }
+  .order-form-card { padding: 1.25rem; }
+  .confirmation-card { padding: 1.5rem; }
+}

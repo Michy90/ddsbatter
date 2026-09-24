@@ -1,0 +1,70 @@
+<%- include('../partials/header') %>
+
+<div class="page-banner text-center py-4">
+  <h1 class="page-banner-title">✨ Custom Cake Request</h1>
+  <p class="page-banner-sub">Tell us your vision — we'll make it real.</p>
+</div>
+
+<div class="container py-5">
+  <div class="order-form-card mx-auto">
+
+    <% if (errors.length > 0) { %>
+      <div class="alert alert-danger"><ul class="mb-0"><% errors.forEach(e => { %><li><%= e %></li><% }) %></ul></div>
+    <% } %>
+
+    <div class="alert alert-brand mb-4">
+      <i class="bi bi-info-circle me-2"></i>
+      Custom cakes are priced individually. After you submit, we'll reach out within 24 hours with a quote.
+    </div>
+
+    <form action="/order/submit" method="POST">
+      <input type="hidden" name="product_type" value="custom">
+
+      <h5 class="form-section-title">Tell Us About Your Cake</h5>
+
+      <div class="mb-3">
+        <label class="form-label">Describe Your Dream Cake <span class="text-danger">*</span></label>
+        <textarea name="custom_details" class="form-control" rows="5" required
+          placeholder="Describe the theme, colors, size, number of tiers, decorations, occasion…"><%= old.custom_details||'' %></textarea>
+        <small class="text-muted">The more detail you give, the better we can bring your vision to life.</small>
+      </div>
+
+      <div class="row g-3 mb-3">
+        <div class="col-md-6">
+          <label class="form-label">Approximate Size</label>
+          <select name="size" class="form-select">
+            <option value="">— Not sure yet —</option>
+            <option value='6"'       <%=(old.size==='6"')       ?'selected':''%>>6" (~8 people)</option>
+            <option value='8"'       <%=(old.size==='8"')       ?'selected':''%>>8" (~15 people)</option>
+            <option value='10"'      <%=(old.size==='10"')      ?'selected':''%>>10" (~25 people)</option>
+            <option value='12"'      <%=(old.size==='12"')      ?'selected':''%>>12" (~40 people)</option>
+            <option value="Multi-tier" <%=(old.size==='Multi-tier')?'selected':''%>>Multi-tier</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Preferred Flavor</label>
+          <select name="flavor" class="form-select">
+            <option value="">— Not sure yet —</option>
+            <% ['Vanilla','Chocolate','Red Velvet','Lemon','Strawberry','Banana','Carrot','Marble','Coconut','Orange'].forEach(f => { %>
+              <option value="<%= f %>" <%=(old.flavor===f)?'selected':''%>><%= f %></option>
+            <% }) %>
+          </select>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <label class="form-label">Inscription <small class="text-muted">(optional)</small></label>
+        <input type="text" name="inscription" class="form-control"
+          placeholder="What should be written on the cake?" value="<%= old.inscription||'' %>">
+      </div>
+
+      <%- include('_shared_fields') %>
+      <%- include('_contact_fields') %>
+
+      <button type="submit" class="btn btn-brand-primary w-100 btn-lg mt-3">Submit Custom Request</button>
+      <p class="text-center text-muted small mt-2">We'll review your request and send a quote within 24 hours.</p>
+    </form>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>

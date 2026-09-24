@@ -1,0 +1,41 @@
+<%- include('../partials/header') %>
+
+<div class="container py-5">
+  <div class="confirmation-card text-center mx-auto">
+    <div class="confirmation-icon">🎉</div>
+    <h2 class="mt-3 fw-bold">Order Request Received!</h2>
+    <p class="text-muted">Thank you, <strong><%= order.customer_name %></strong>. We've got your order and will be in touch soon.</p>
+
+    <div class="order-ref-badge">
+      Order Reference: <strong>#<%= order.order_ref %></strong>
+    </div>
+
+    <div class="order-summary-box text-start mt-4">
+      <h6 class="fw-bold mb-3">Order Summary</h6>
+      <table class="table table-sm table-borderless mb-0">
+        <tr><td class="text-muted">Product</td><td><strong><%= order.product_type.replace('_',' ').replace(/\b\w/g,c=>c.toUpperCase()) %></strong></td></tr>
+        <% if (order.size)        { %><tr><td class="text-muted">Size / Qty</td><td><%= order.size %></td></tr><% } %>
+        <% if (order.flavor)      { %><tr><td class="text-muted">Flavor</td><td><%= order.flavor %></td></tr><% } %>
+        <% if (order.icing_type)  { %><tr><td class="text-muted">Icing</td><td><%= order.icing_type %><%= order.icing_color ? ' — '+order.icing_color : '' %></td></tr><% } %>
+        <% if (order.inscription) { %><tr><td class="text-muted">Inscription</td><td><%= order.inscription %></td></tr><% } %>
+        <tr><td class="text-muted">Event Date</td><td><strong><%= order.event_date %></strong></td></tr>
+        <tr><td class="text-muted">Delivery</td><td><%= order.delivery_method === 'delivery' ? '🚗 Delivery to: '+order.delivery_address : '🏠 Pickup' %></td></tr>
+        <tr><td class="text-muted">Email</td><td><%= order.customer_email %></td></tr>
+        <tr><td class="text-muted">Phone</td><td><%= order.customer_phone %></td></tr>
+      </table>
+    </div>
+
+    <div class="mt-4 p-3 bg-cream rounded text-muted small">
+      <i class="bi bi-envelope me-1"></i> We'll contact you within <strong>24 hours</strong> to confirm and share pricing.<br>
+      For urgent queries, DM us:
+      <a href="https://instagram.com/dds_batter" target="_blank" class="fw-bold">@dds_batter</a>
+    </div>
+
+    <div class="mt-4 d-flex gap-3 justify-content-center flex-wrap">
+      <a href="/" class="btn btn-outline-brand">Back to Home</a>
+      <a href="/order" class="btn btn-brand-primary">Place Another Order</a>
+    </div>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>

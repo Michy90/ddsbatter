@@ -1,0 +1,32 @@
+<!-- ── Shared: Delivery + Event Date ─────────────────────── -->
+<h5 class="form-section-title mt-4">Delivery & Date</h5>
+
+<div class="mb-3">
+  <label class="form-label">Delivery or Pickup? <span class="text-danger">*</span></label>
+  <div class="d-flex gap-3">
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="delivery_method" id="pickup" value="pickup"
+        <%= (old.delivery_method === 'pickup' || !old.delivery_method) ? 'checked' : '' %>>
+      <label class="form-check-label" for="pickup">🏠 Pickup</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="delivery_method" id="delivery" value="delivery"
+        <%= (old.delivery_method === 'delivery') ? 'checked' : '' %>>
+      <label class="form-check-label" for="delivery">🚗 Delivery</label>
+    </div>
+  </div>
+  <small class="text-muted">Delivery availability will be confirmed when we reach out.</small>
+</div>
+
+<div class="mb-3" id="deliveryAddressWrap" style="<%= old.delivery_method === 'delivery' ? '' : 'display:none' %>">
+  <label class="form-label">Delivery Address</label>
+  <input type="text" name="delivery_address" class="form-control"
+    placeholder="Full delivery address" value="<%= old.delivery_address || '' %>">
+</div>
+
+<div class="mb-4">
+  <label class="form-label">Event / Needed By Date <span class="text-danger">*</span></label>
+  <input type="date" name="event_date" class="form-control" id="eventDate"
+    value="<%= old.event_date || '' %>" required>
+  <small class="text-muted"><i class="bi bi-clock me-1"></i>Minimum <strong>3 days</strong> from today.</small>
+</div>

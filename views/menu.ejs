@@ -1,0 +1,92 @@
+<%- include('partials/header') %>
+
+<div class="page-banner text-center py-5">
+  <h1 class="page-banner-title">Our Menu</h1>
+  <p class="page-banner-sub">All items are made fresh to order.</p>
+</div>
+
+<div class="container py-5">
+
+  <!-- Cakes -->
+  <h2 class="menu-section-title"><span>🎂</span> Celebration Cakes</h2>
+  <p class="text-muted mb-4">Available in 6", 8", 10" and 12". Single or multi-tier options available.</p>
+  <div class="row g-3 mb-5">
+    <% const cakeFlavors = ['Vanilla', 'Chocolate', 'Red Velvet', 'Lemon', 'Strawberry', 'Banana', 'Carrot', 'Marble', 'Coconut', 'Orange']; %>
+    <% cakeFlavors.forEach(f => { %>
+      <div class="col-6 col-md-3">
+        <div class="menu-item-card text-center">
+          <p class="menu-item-name"><%= f %></p>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+
+  <h6 class="fw-bold mb-3">Icing Options</h6>
+  <div class="row g-3 mb-5">
+    <% const icings = ['Buttercream', 'Fondant', 'Whipped Cream', 'Cream Cheese', 'Ganache', 'Naked (no icing)']; %>
+    <% icings.forEach(i => { %>
+      <div class="col-6 col-md-4">
+        <div class="menu-item-card icing-card text-center"><p class="menu-item-name"><%= i %></p></div>
+      </div>
+    <% }) %>
+  </div>
+
+  <!-- Cupcakes -->
+  <h2 class="menu-section-title"><span>🧁</span> Cupcakes</h2>
+  <p class="text-muted mb-4">Available in half dozen (6) or full dozen (12). Same flavors and icing options as cakes.</p>
+  <div class="row g-3 mb-5">
+    <div class="col-md-4"><div class="menu-item-card text-center"><p class="menu-item-name">Half Dozen (6)</p></div></div>
+    <div class="col-md-4"><div class="menu-item-card text-center"><p class="menu-item-name">Full Dozen (12)</p></div></div>
+    <div class="col-md-4"><div class="menu-item-card text-center"><p class="menu-item-name">2 Dozen (24)</p></div></div>
+  </div>
+
+  <!-- Small Chops -->
+  <h2 class="menu-section-title"><span>🥟</span> Small Chops</h2>
+  <p class="text-muted mb-3">Nigerian-style party bites. Choose your filling and spice level.</p>
+  <div class="row g-3 mb-5">
+    <% const chops = [
+      {name: 'Chicken Samosa', icon: '🥟'},
+      {name: 'Beef Samosa', icon: '🥟'},
+      {name: 'Veggie Samosa', icon: '🥗'},
+      {name: 'Chicken Spring Roll', icon: '🌯'},
+      {name: 'Beef Spring Roll', icon: '🌯'},
+      {name: 'Veggie Spring Roll', icon: '🥗'},
+      {name: 'Chicken Puff Puff', icon: '🍡'},
+      {name: 'Beef Puff Puff', icon: '🍡'},
+      {name: 'Veggie Puff Puff', icon: '🥗'},
+      {name: 'Chicken Pie', icon: '🥧'},
+      {name: 'Meat Pie', icon: '🥧'},
+    ]; %>
+    <% chops.forEach(c => { %>
+      <div class="col-6 col-md-4">
+        <div class="menu-item-card text-center">
+          <div class="menu-item-icon"><%= c.icon %></div>
+          <p class="menu-item-name"><%= c.name %></p>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+  <div class="alert alert-brand mb-5">
+    <i class="bi bi-info-circle me-2"></i>
+    Small chops are priced per piece. Spice levels available: <strong>Mild, Medium, Hot</strong>.
+    Vegetarian options available for all items.
+  </div>
+
+  <!-- Custom -->
+  <h2 class="menu-section-title"><span>✨</span> Custom Cakes</h2>
+  <p class="text-muted mb-4">
+    Want something truly unique? We create fully custom cakes — themed, sculpted, multi-tier, fondant art and more.
+    Submit a request and we'll get back to you with a quote.
+  </p>
+  <a href="/order/custom" class="btn btn-brand-primary mb-5">Request a Custom Cake</a>
+
+  <!-- CTA -->
+  <div class="menu-cta text-center py-5">
+    <h3>Ready to Order?</h3>
+    <p class="text-muted">All items are made fresh to order. Minimum 3 days notice required.</p>
+    <a href="/order" class="btn btn-brand-primary btn-lg">Place Your Order</a>
+  </div>
+
+</div>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,74 @@
+<%- include('../partials/header') %>
+
+<div class="page-banner text-center py-4">
+  <h1 class="page-banner-title">🧁 Order Cupcakes</h1>
+  <p class="page-banner-sub">Pick your quantity, flavor and frosting.</p>
+</div>
+
+<div class="container py-5">
+  <div class="order-form-card mx-auto">
+
+    <% if (errors.length > 0) { %>
+      <div class="alert alert-danger"><ul class="mb-0"><% errors.forEach(e => { %><li><%= e %></li><% }) %></ul></div>
+    <% } %>
+
+    <form action="/order/submit" method="POST">
+      <input type="hidden" name="product_type" value="cupcake">
+
+      <h5 class="form-section-title">Cupcake Details</h5>
+
+      <div class="row g-3 mb-3">
+        <div class="col-md-6">
+          <label class="form-label">Quantity <span class="text-danger">*</span></label>
+          <select name="size" class="form-select" required>
+            <option value="">— Select quantity —</option>
+            <option value="Half Dozen (6)"  <%=(old.size==='Half Dozen (6)') ?'selected':''%>>Half Dozen — 6 cupcakes</option>
+            <option value="Full Dozen (12)" <%=(old.size==='Full Dozen (12)')?'selected':''%>>Full Dozen — 12 cupcakes</option>
+            <option value="2 Dozen (24)"    <%=(old.size==='2 Dozen (24)')   ?'selected':''%>>2 Dozen — 24 cupcakes</option>
+            <option value="3 Dozen (36)"    <%=(old.size==='3 Dozen (36)')   ?'selected':''%>>3 Dozen — 36 cupcakes</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Flavor <span class="text-danger">*</span></label>
+          <select name="flavor" class="form-select" required>
+            <option value="">— Select flavor —</option>
+            <% ['Vanilla','Chocolate','Red Velvet','Lemon','Strawberry','Banana','Carrot','Marble','Coconut','Orange'].forEach(f => { %>
+              <option value="<%= f %>" <%=(old.flavor===f)?'selected':''%>><%= f %></option>
+            <% }) %>
+          </select>
+        </div>
+      </div>
+
+      <div class="row g-3 mb-3">
+        <div class="col-md-6">
+          <label class="form-label">Frosting Type <span class="text-danger">*</span></label>
+          <select name="icing_type" class="form-select" required>
+            <option value="">— Select frosting —</option>
+            <% ['Buttercream','Fondant','Whipped Cream','Cream Cheese','Ganache'].forEach(i => { %>
+              <option value="<%= i %>" <%=(old.icing_type===i)?'selected':''%>><%= i %></option>
+            <% }) %>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Frosting Color <small class="text-muted">(optional)</small></label>
+          <input type="text" name="icing_color" class="form-control"
+            placeholder="e.g. Pastel pink, White" value="<%= old.icing_color||'' %>">
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <label class="form-label">Special Notes <small class="text-muted">(optional)</small></label>
+        <textarea name="special_notes" class="form-control" rows="2"
+          placeholder="Any design ideas, toppers, themes, allergies…"><%= old.special_notes||'' %></textarea>
+      </div>
+
+      <%- include('_shared_fields') %>
+      <%- include('_contact_fields') %>
+
+      <button type="submit" class="btn btn-brand-primary w-100 btn-lg mt-3">Submit Order Request</button>
+      <p class="text-center text-muted small mt-2">We'll confirm your order and share a quote within 24 hours.</p>
+    </form>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>

@@ -1,0 +1,87 @@
+<%- include('../partials/header') %>
+
+<div class="page-banner text-center py-4">
+  <h1 class="page-banner-title">🎂 Order a Cake</h1>
+  <p class="page-banner-sub">Customise every detail — we'll send you a quote.</p>
+</div>
+
+<div class="container py-5">
+  <div class="order-form-card mx-auto">
+
+    <% if (errors.length > 0) { %>
+      <div class="alert alert-danger"><ul class="mb-0"><% errors.forEach(e => { %><li><%= e %></li><% }) %></ul></div>
+    <% } %>
+
+    <form action="/order/submit" method="POST">
+      <input type="hidden" name="product_type" value="cake">
+
+      <!-- CAKE DETAILS -->
+      <h5 class="form-section-title">Cake Details</h5>
+
+      <div class="row g-3 mb-3">
+        <div class="col-md-6">
+          <label class="form-label">Cake Size <span class="text-danger">*</span></label>
+          <select name="size" class="form-select" required>
+            <option value="">— Select size —</option>
+            <option value='6"' <%=(old.size==='6"') ?'selected':''%>>6" (serves ~8)</option>
+            <option value='8"' <%=(old.size==='8"') ?'selected':''%>>8" (serves ~15)</option>
+            <option value='10"' <%=(old.size==='10"')?'selected':''%>>10" (serves ~25)</option>
+            <option value='12"' <%=(old.size==='12"')?'selected':''%>>12" (serves ~40)</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Layers</label>
+          <select name="layers" class="form-select">
+            <option value="1 layer" <%=(old.layers==='1 layer')?'selected':''%>>1 Layer</option>
+            <option value="2 layers" <%=(old.layers==='2 layers')?'selected':''%>>2 Layers</option>
+            <option value="3 layers" <%=(old.layers==='3 layers')?'selected':''%>>3 Layers</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Cake Flavor <span class="text-danger">*</span></label>
+        <select name="flavor" class="form-select" required>
+          <option value="">— Select flavor —</option>
+          <% ['Vanilla','Chocolate','Red Velvet','Lemon','Strawberry','Banana','Carrot','Marble','Coconut','Orange'].forEach(f => { %>
+            <option value="<%= f %>" <%=(old.flavor===f)?'selected':''%>><%= f %></option>
+          <% }) %>
+        </select>
+      </div>
+
+      <div class="row g-3 mb-3">
+        <div class="col-md-6">
+          <label class="form-label">Icing Type <span class="text-danger">*</span></label>
+          <select name="icing_type" class="form-select" required>
+            <option value="">— Select icing —</option>
+            <% ['Buttercream','Fondant','Whipped Cream','Cream Cheese','Ganache','Naked (no icing)'].forEach(i => { %>
+              <option value="<%= i %>" <%=(old.icing_type===i)?'selected':''%>><%= i %></option>
+            <% }) %>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Icing Color <small class="text-muted">(optional)</small></label>
+          <input type="text" name="icing_color" class="form-control" placeholder="e.g. Blush pink, Gold" value="<%= old.icing_color||'' %>">
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Inscription <small class="text-muted">(optional)</small></label>
+        <input type="text" name="inscription" class="form-control" placeholder="e.g. Happy Birthday Sarah 🎉" value="<%= old.inscription||'' %>">
+      </div>
+
+      <div class="mb-4">
+        <label class="form-label">Special Notes <small class="text-muted">(optional)</small></label>
+        <textarea name="special_notes" class="form-control" rows="3" placeholder="Any allergies, design inspiration, colour scheme…"><%= old.special_notes||'' %></textarea>
+      </div>
+
+      <%- include('_shared_fields') %>
+      <%- include('_contact_fields') %>
+
+      <button type="submit" class="btn btn-brand-primary w-100 btn-lg mt-3">Submit Order Request</button>
+      <p class="text-center text-muted small mt-2">We'll confirm your order and share a quote within 24 hours.</p>
+    </form>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>
