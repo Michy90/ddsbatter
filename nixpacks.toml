@@ -1,2 +1,5 @@
 [phases.setup]
-nixPkgs = ["python3", "python3Packages.setuptools", "nodePackages.node-gyp"]
+nixPkgs = ["python3", "python3Packages.setuptools", "nodePackages.node-gyp", "gcc", "gnumake"]
+
+[variables]
+NODE_VERSION = "18"
